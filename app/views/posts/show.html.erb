@@ -1,5 +1,5 @@
 
-    <div class="max-w-2xl mx-auto bg-white shadow-md rounded-lg my-6">
+    <div class="mx-auto bg-white shadow-md rounded-lg my-6 w-fit">
       <!-- Post Header -->
       <%= render 'posts/post', post: @post%>
         
@@ -21,11 +21,11 @@
         <div class="flex items-center">
           <div class="h-10 w-10 flex justify-center items-center rounded-full bg-green-200"><%= current_user.email[0].capitalize%></div>
           <%=simple_form_for @comment, html: {
-                      class: "quote form w-full flex gap-1 m-0", id: "comment_form",
+                      class: "quote form w-full flex ml-1", id: "comment_form",
                     }, method: :post do |f| %>
-        <%=f.input :content, wrapper_html:{class: 'flex items-center py-2'}, placeholder: 'Add your comment here...', input_html: {class: 'w-[500px] border-none p-0 focus:outline-none text-gray-600 text-sm bg-gray-100 rounded-lg px-3 py-2 h-full'}, label_html: {class: 'hidden'}%>
-        <%=f.input :post_id, label_html: {class: 'hidden'}, input_html: {class: 'hidden', value: @post.id}%>
-        <%=f.input :user_id, label_html: {class: 'hidden'}, input_html: {class: 'hidden', value: current_user.id}%>
+        <%=f.input :content, wrapper_html:{class: 'flex items-center py-2 flex-1'}, placeholder: 'Add your comment here...', input_html: {class: 'w-[99%] border-none p-0 focus:outline-none text-gray-600 text-sm bg-gray-100 rounded-lg px-3 py-2 h-full'}, label_html: {class: 'hidden'}%>
+        <%=f.input :post_id, wrapper_html:{class: 'hidden'}, input_html: {class: 'hidden', value: @post.id}%>
+        <%=f.input :user_id, wrapper_html: {class: 'hidden'}, input_html: {class: 'hidden', value: current_user.id}%>
         <%=f.submit "Comment", class: 'border border-solid border-[#d9dbe9] rounded-lg p-2 my-2 hover:bg-gray-200 cursor-pointer'%>
       <%end%>
           <%# <input class="w-full border-none p-0 focus:outline-none text-gray-600 text-sm bg-gray-100 rounded-lg px-3 py-2" type="text" placeholder="Add a comment..."> %>

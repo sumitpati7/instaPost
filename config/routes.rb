@@ -23,5 +23,5 @@ Rails.application.routes.draw do
   end
 
   resources :posts, only: %i[index show new create destroy]
-  resources :comments, only: %i[create]
+  resources :comments, only: %i[create destroy]
 end
