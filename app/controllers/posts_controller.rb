@@ -24,6 +24,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post=Post.find(params[:id])
+    @post.destroy
+    respond_to do |format|
+      format.html { redirect_to posts_path }
+      format.turbo_stream
+    end
+  end
+
   private
   def post_params
     params.require(:post).permit(:photo, :caption, :user_id)

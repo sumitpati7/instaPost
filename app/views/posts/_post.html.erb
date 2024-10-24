@@ -1,12 +1,17 @@
 <%= turbo_frame_tag "post_#{post.id}" do %>
   <div class="mx-auto shadow-md my-4">
     <div class="bg-white w-full border border-gray-300 rounded-lg shadow-sm">
-      <div class="flex items-center px-4 py-3">
+      <div class="flex items-center px-4 py-3 relative group">
         <div class="h-10 w-10 flex justify-center items-center rounded-full bg-green-200"><%= post.user.email[0].capitalize%></div>
         <div class="ml-4">
           <h2 class="font-semibold text-gray-800"><%= post.user.email%></h2>
           <span class="text-sm text-gray-500">2 hours ago</span>
         </div>
+        <% if current_user.id==post.user_id%>
+        <div class="absolute right-2 top-[10%] hidden group-hover:block">
+            <%= button_to "Delete", post_path(post), method: :delete, class: "" %>
+        </div>
+        <% end %>
       </div>
       
       <!-- Post Image -->
