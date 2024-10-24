@@ -5,4 +5,5 @@ class Posts::DownvotesController < ApplicationController
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.replace("post_#{params[:post_id]}_container", partial: "shared/likes", locals: { post: @post }) }
     end
+  end
 end
