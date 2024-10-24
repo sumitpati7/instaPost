@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   resources :posts, only: %i[index show new create destroy]
   resources :comments, only: %i[create destroy]
   resources :likes, only: %i[create destroy]
+  resources :upvotes, only: :create, controller: "posts/upvotes"
+  resources :downvotes, only: :create, controller: "posts/downvotes"
 end

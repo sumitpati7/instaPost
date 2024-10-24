@@ -25,6 +25,8 @@ gem "devise"
 gem "image_processing", ">= 1.2"
 
 gem "annotate"
+
+gem "acts_as_votable"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
