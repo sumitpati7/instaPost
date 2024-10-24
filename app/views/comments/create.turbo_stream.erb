@@ -1,0 +1,4 @@
+<%= turbo_stream.append "comments" do%>   
+   <%= render 'shared/comment', comment: @comment %>
+<%end%>
+<%= turbo_stream.update Comment.new, "New Content Here"%>

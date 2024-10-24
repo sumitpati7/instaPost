@@ -17,7 +17,7 @@
 <% end %>
 
 <!-- Add this JavaScript below the form -->
-<%# <script>
+ <script>
   document.getElementById('photoInput').addEventListener('change', function(event) {
     const file = event.target.files[0];
     if (file) {
@@ -30,5 +30,5 @@
       reader.readAsDataURL(file);  // Read the file as a Data URL
     }
   });
-</script> %>
+</script>
 

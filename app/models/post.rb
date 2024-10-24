@@ -12,6 +12,6 @@ class Post < ApplicationRecord
   has_one_attached :photo
 
   belongs_to :user
-  has_many :comment
-  has_many :like
+  has_many :comments
+  has_many :likes
 end
