@@ -1,6 +1,11 @@
-<div class="flex gap-4 flex-col">
-    <% @posts.each do |post|%>
-        <%= render 'posts/post', post: post%>
+<div class="flex flex-col gap-4">
+    <%= turbo_frame_tag Post.new %>
+    <%= turbo_frame_tag "posts" do %>
+        <div class="flex flex-col">
+            <% @posts.each do |post|%>
+                <%= render 'posts/post', post: post%>
+            <% end %>
+        </div>
     <% end %>
 </div>
 

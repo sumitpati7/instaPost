@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.includes(:user).all
+    @posts = Post.includes(:user).all.reverse
   end
 
   def show
@@ -15,7 +15,10 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to posts_index_path, notice: "Post was successfully created."
+      respond_to do |format|
+        format.html { redirect_to posts_index_path, notice: "Post was successfully created." }
+        format.turbo_stream
+      end
     else
       redirect_to new_post_path, alert: @post.errors.full_messages
     end
