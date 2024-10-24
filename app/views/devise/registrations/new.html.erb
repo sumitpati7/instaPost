@@ -7,6 +7,10 @@
   <!-- Display Error Messages -->
   <%= render "devise/shared/error_messages", resource: resource %>
 
+  <div class="field">
+    <%= f.label :photo, 'Photo' %>
+    <%= f.file_field :photo, class: "form-control block w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" %>
+  </div>
   <!-- Email Field -->
   <div class="field">
     <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>

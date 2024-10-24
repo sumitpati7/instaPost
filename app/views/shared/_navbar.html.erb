@@ -4,16 +4,21 @@
         
         <!-- Logo/Title -->
         <div class="flex-shrink-0 flex items-center">
-          <a href="#" class="text-2xl font-semibold text-gray-800 font-pacifico tracking-wide">InstaPost</a>
+          <a href="/" class="text-2xl font-semibold text-gray-800 font-pacifico tracking-wide">InstaPost</a>
         </div>
 
         <!-- Navigation Links -->
-        
+
+
 
         <!-- Sign In Button -->
-        <div class="flex items-center gap-4">
-          <%# <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium">Sign In</a> %>
-          <%= link_to "Sign In", new_user_session_path, class: "bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium"%>
-          <%= button_to "Sign Out", destroy_user_session_path,method: :delete, class: "bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium"%>
-        </div>
+          <div class="flex items-center gap-4">
+        <%if user_signed_in?%>
+            <%=current_user.email%>
+            <%= link_to "New Post", new_post_path, class: "bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium"%>
+        <%else%>
+            <%= link_to "Sign In", new_user_session_path, class: "bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium"%>
+        <%end%>
+            <%= button_to "Sign Out", destroy_user_session_path,method: :delete, class: "bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium"%>
+          </div>
   </nav>
