@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get "comments/index"
-  get "comments/create"
-  get "posts/index"
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -24,4 +21,5 @@ Rails.application.routes.draw do
 
   resources :posts, only: %i[index show new create destroy]
   resources :comments, only: %i[create destroy]
+  resources :likes, only: %i[create destroy]
 end
